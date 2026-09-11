@@ -19,6 +19,11 @@ export default function ProjectsPage() {
             <h1 className="display h-el mt-5 max-w-[13ch] text-[clamp(42px,7vw,86px)]">
               Rooms we <span className="italic text-brass">finished.</span>
             </h1>
+            <p className="h-el mt-6 max-w-[58ch] text-[14px] leading-relaxed text-ink-3">
+              Worked examples while the first project shoots are booked — the diagnosis and
+              specification in each is how we would actually solve that room. Photography and named
+              client projects replace these before launch.
+            </p>
           </Reveal>
         </div>
       </section>

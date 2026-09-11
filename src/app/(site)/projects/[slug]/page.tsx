@@ -46,6 +46,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </div>
 
           <div className="mt-6 flex flex-wrap gap-x-10 gap-y-2 border-b border-line pb-6 font-mono text-[10.5px] uppercase tracking-[0.14em] text-ink-3">
+            {p.illustrative && <span className="text-warn">Worked example</span>}
             <span className="tnum">{p.openings} openings</span>
             <span>{p.year}</span>
             {community && (
