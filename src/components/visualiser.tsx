@@ -2,7 +2,19 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Room3D, type Floor, type Layer, type RoomState, type TimeOfDay } from "@/components/room-3d";
+import dynamic from "next/dynamic";
+import type { Floor, Layer, RoomState, TimeOfDay } from "@/components/room-3d";
+
+// loaded after first paint: the controls and copy render immediately
+const Room3D = dynamic(() => import("@/components/room-3d").then((m) => m.Room3D), {
+  ssr: false,
+  loading: () => (
+    <div
+      className="h-full w-full"
+      style={{ background: "linear-gradient(168deg,#e8e4dc 0%,#d2cabb 46%,#b6ab97 100%)" }}
+    />
+  ),
+});
 
 const LAYERS: { id: Layer; label: string; note: string }[] = [
   { id: "none", label: "Bare glass", note: "How the room was handed over. Full sun, full exposure." },

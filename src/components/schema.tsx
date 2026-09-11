@@ -1,9 +1,11 @@
+import { SITE_URL } from "@/lib/site-url";
+
 /**
  * Structured data. Kept in one file so the claims we publish about the business
  * stay consistent across pages.
  */
 
-const BASE = "https://drapesandfitouts.ae";
+const BASE = SITE_URL;
 
 export function LocalBusinessSchema() {
   const data = {

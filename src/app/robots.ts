@@ -1,14 +1,14 @@
 import type { MetadataRoute } from "next";
 
+import { IS_PRODUCTION_SITE, SITE_URL } from "@/lib/site-url";
+
 /**
  * Preview and prototype deployments must never be indexed — only the real
  * production domain is allowed into search results.
  */
-const isProduction =
-  process.env.VERCEL_ENV === "production" || process.env.ALLOW_INDEXING === "true";
 
 export default function robots(): MetadataRoute.Robots {
-  if (!isProduction) {
+  if (!IS_PRODUCTION_SITE) {
     return { rules: { userAgent: "*", disallow: "/" } };
   }
 
@@ -19,6 +19,6 @@ export default function robots(): MetadataRoute.Robots {
       // Assessment results are private to the person who created them.
       disallow: ["/assessment/"],
     },
-    sitemap: "https://drapesandfitouts.ae/sitemap.xml",
+    sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }

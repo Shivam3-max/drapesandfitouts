@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo, Cormorant_Garamond, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
+import { SITE_URL } from "@/lib/site-url";
 import { LocalBusinessSchema } from "@/components/schema";
 
 const archivo = Archivo({
@@ -26,7 +27,7 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://drapesandfitouts.ae"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Drapes & Fitouts — control light, privacy and comfort",
     template: "%s · Drapes & Fitouts",

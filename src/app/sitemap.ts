@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/site-url";
 import { SOLUTIONS } from "@/lib/catalogue";
 import { COMMUNITIES } from "@/data/communities";
 import { PROJECTS } from "@/data/projects";
 
-const BASE = "https://drapesandfitouts.ae";
+const BASE = SITE_URL;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [

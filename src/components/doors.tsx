@@ -4,7 +4,27 @@ import Link from "next/link";
 import { useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import { Room3D } from "@/components/room-3d";
+import dynamic from "next/dynamic";
+
+/**
+ * three.js is a third of the page weight, and the entry page has to feel
+ * instant. The room loads after first paint and fades in over its own still.
+ */
+const Room3D = dynamic(() => import("@/components/room-3d").then((m) => m.Room3D), {
+  ssr: false,
+  loading: () => <RoomStill />,
+});
+
+function RoomStill() {
+  return (
+    <div
+      className="h-full w-full"
+      style={{
+        background: "linear-gradient(168deg,#e8e4dc 0%,#d2cabb 46%,#b6ab97 100%)",
+      }}
+    />
+  );
+}
 
 /**
  * The home page: eight doors, each one labelled in plain words.
