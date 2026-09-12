@@ -9,6 +9,9 @@
     "lint": "eslint",
     "test:engine": "node --import tsx --test scripts/engine.test.ts"
   },
+  "engines": {
+    "node": ">=20"
+  },
   "dependencies": {
     "@gsap/react": "^2.1.2",
     "@react-three/fiber": "^9.7.0",
